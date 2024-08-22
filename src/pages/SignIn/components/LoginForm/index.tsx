@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
 
 export const LoginForm = () => {
   return (
-    <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="w-full max-w-md mx-auto">
       <div className="px-4 py-10 mx-2 sm:px-10">
         <div className="space-y-5">
           <div className="flex flex-col gap-2">
@@ -28,15 +27,6 @@ export const LoginForm = () => {
               Iniciar sessão
             </Button>
           </div>
-        </div>
-        <Separator className="my-4" />
-        <div className="flex flex-col space-y-3">
-          <Button size={'sm'} variant={'outline'}>
-            Entrar com Google
-          </Button>
-          <Button size={'sm'} variant={'outline'}>
-            Entrar com SAML/OIDC
-          </Button>
         </div>
       </div>
     </div>

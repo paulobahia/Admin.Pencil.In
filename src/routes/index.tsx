@@ -1,4 +1,4 @@
-import { SignIn } from '@/pages'
+import { FirstSteps, SignIn } from '@/pages'
 
 import {
   createBrowserRouter,
@@ -10,6 +10,7 @@ export const Routers = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<SignIn />} />
+      <Route path="/first-steps" element={<FirstSteps />} />
     </Route>
   )
 )
