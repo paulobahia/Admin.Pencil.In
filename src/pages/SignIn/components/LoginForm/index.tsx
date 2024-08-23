@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="px-4 py-10 mx-2 sm:px-10">
@@ -23,7 +26,7 @@ export const LoginForm = () => {
             </div>
           </div>
           <div>
-            <Button size={'sm'} className="bg-[#6D28D9] hover:bg-[#6D28D9]/50 text-white w-full">
+            <Button onClick={() => navigate('/first-steps')} size={'sm'} className="bg-[#6D28D9] hover:bg-[#6D28D9]/50 text-white w-full">
               Iniciar sessão
             </Button>
           </div>
