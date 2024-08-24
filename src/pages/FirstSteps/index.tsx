@@ -18,7 +18,7 @@ export const FirstSteps = () => {
   const [selectedPlan, setSelectedPlan] = useState("annual")
 
   return (
-    <main className="flex items-center justify-center min-h-screen p-10 antialiased bg-background">
+    <main className="flex items-center justify-center min-h-screen antialiased bg-background">
       <div className="container mx-auto p-4 max-w-[1440px]">
         <h1 className="mb-2 text-3xl font-bold">Bem-Vindo(a) à Pencil.In!</h1>
         <p className="mb-6 text-muted-foreground">Nós informe alguns dados básicos para que possamos configurar o seu perfil do <b>Pelcin.In</b></p>
@@ -38,7 +38,7 @@ export const FirstSteps = () => {
                   <div className="space-y-2">
                     <Label htmlFor="userName">Nome do usuario</Label>
                     <div className="flex">
-                      <Input className="pr-0 rounded-r-none w-fit" disabled placeholder="Pencil.In.com.br/" />
+                      <Input className="hidden pr-0 rounded-r-none w-fit sm:block" disabled placeholder="Pencil.In.com.br/" />
                       <Input className="rounded-l-none" id="userName" type="text" placeholder="my-barber-shop" />
                     </div>
                   </div>
@@ -93,32 +93,32 @@ export const FirstSteps = () => {
                     </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="grid grid-cols-1 px-6 pt-3 gap-y-3 gap-x-5 md:grid-cols-2">
+                <AccordionContent className="grid grid-cols-1 px-6 pt-3 gap-y-3 gap-x-5 sm:grid-cols-2">
                   <div className="col-span-2 space-y-2">
                     <Label htmlFor="name">Endereço de cobrança</Label>
                     <Input id="name" type="text" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="col-span-2 space-y-2 sm:col-span-1">
                     <Label htmlFor="name">Apartamento, Bloco, etc.</Label>
                     <Input id="name" type="text" placeholder="Opicional" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="col-span-2 space-y-2 sm:col-span-1">
                     <Label htmlFor="name">Cidade</Label>
                     <Input id="name" type="text" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="col-span-2 space-y-2 sm:col-span-1">
                     <Label htmlFor="name">Estado</Label>
                     <Input id="name" type="text" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="col-span-2 space-y-2 sm:col-span-1">
                     <Label htmlFor="name">CEP</Label>
                     <Input id="name" type="text" />
                   </div>
                   <div className="col-span-2 space-y-2">
                     <Label htmlFor="name">Informações do cartão</Label>
-                    <div className="flex">
+                    <div className="flex flex-col gap-3">
                       <Input
-                        className="border-r-0 rounded-r-none"
+                        className=""
                         id="card-number"
                         type="text"
                         maxLength={19}
@@ -130,8 +130,10 @@ export const FirstSteps = () => {
                           e.target.value = value
                         }}
                       />
-                      <Input className="border-l-0 border-r-0 rounded-l-none rounded-r-none w-fit" id="expiration-date" type="text" maxLength={5} pattern="d{2}/d{2}" placeholder="MM/YY" />
-                      <Input className="border-l-0 rounded-l-none w-fit" id="cvv" type="text" maxLength={3} pattern="d{3}" placeholder="CVC" />
+                      <div className="flex gap-5">
+                        <Input id="expiration-date" type="text" maxLength={5} pattern="d{2}/d{2}" placeholder="MM/YY" />
+                        <Input id="cvv" type="text" maxLength={3} pattern="d{3}" placeholder="CVC" />
+                      </div>
                     </div>
                   </div>
                   <Button onClick={() => navigate('/first-steps/connected-calendar')} className="w-full col-span-2 mt-2 text-white bg-violet-700 hover:bg-violet-600">Finalizar Cadastro</Button>

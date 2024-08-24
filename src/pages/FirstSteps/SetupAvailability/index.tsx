@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export const SetupAvailability = () => {
   return (
-    <main className="flex items-center justify-center min-h-screen p-10 antialiased bg-background">
+    <main className="flex items-center justify-center min-h-screen antialiased bg-background">
       <div className="w-full max-w-xl mx-auto space-y-10 text-center">
         <div className="flex flex-col items-start px-12">
           <h1 className="mb-2 text-3xl font-bold">

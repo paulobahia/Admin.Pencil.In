@@ -8,7 +8,7 @@ export const ConnectedCalendar = () => {
   const navigate = useNavigate();
 
   return (
-    <main className="flex items-center justify-center min-h-screen p-10 antialiased bg-background">
+    <main className="flex items-center justify-center min-h-screen antialiased bg-background">
       <div className="w-full max-w-xl mx-auto space-y-10 text-center">
         <div className="flex flex-col items-start px-12">
           <h1 className="mb-2 text-3xl font-bold">
@@ -27,7 +27,7 @@ export const ConnectedCalendar = () => {
             </div>
           </div>
         </div>
-        <Card className="pt-6 rounded-md">
+        <Card className="pt-6 mx-5 rounded-md sm:mx-auto">
           <CardContent>
             <Card className="flex flex-row items-center justify-between p-4 rounded-md rounded-b-none">
               <div className="flex flex-row items-center space-x-3">
