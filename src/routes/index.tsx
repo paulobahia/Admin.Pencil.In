@@ -1,4 +1,4 @@
-import { FirstSteps, SignIn } from '@/pages'
+import { ConnectedCalendar, FirstSteps, SetupAvailability, SignIn } from '@/pages'
 
 import {
   createBrowserRouter,
@@ -11,6 +11,8 @@ export const Routers = createBrowserRouter(
     <Route>
       <Route path="/" element={<SignIn />} />
       <Route path="/first-steps" element={<FirstSteps />} />
+      <Route path="/first-steps/connected-calendar" element={<ConnectedCalendar />} />
+      <Route path="/first-steps/setup-availability" element={<SetupAvailability />} />
     </Route>
   )
 )
