@@ -33,11 +33,11 @@ export const WeekDayItem: React.FC<WeekDayItemProps> = ({ day, onToggle, onTimeC
               <div key={timeId} className="flex items-center gap-2">
                 <TimeInput
                   value={startTime}
-                  onChange={(value) => onTimeChange(timeId, timeIndex, 'startTime', value)} />
+                  onChange={(value) => onTimeChange(id, timeIndex, 'startTime', value)} />
                 <Dot className="w-[20%]" />
                 <TimeInput
                   value={endTime}
-                  onChange={(value) => onTimeChange(timeId, timeIndex, 'endTime', value)} />
+                  onChange={(value) => onTimeChange(id, timeIndex, 'endTime', value)} />
                 {
                   timeIndex === 1
                     ?

@@ -103,19 +103,22 @@ export const SetupAvailability = () => {
     );
   }
 
-  const handleTimeChange = (weekIndex: number, timeIndex: number, field: 'startTime' | 'endTime', newValue: string) => {
-    const updatedSetupWeeks = weeks.map((week, wIndex) =>
-      wIndex === weekIndex
-        ? {
-          ...week,
-          times: week.times.map((timePeriod, tIndex) =>
+  const handleTimeChange = (weekId: number, timeIndex: number, field: 'startTime' | 'endTime', newValue: string) => {
+    setWeeks((prevWeeks) => {
+      return prevWeeks.map((week) => {
+        if (week.id === weekId) {
+          const updatedTimes = week.times.map((timePeriod, tIndex) =>
             tIndex === timeIndex ? { ...timePeriod, [field]: newValue } : timePeriod
-          ),
-        }
-        : week
-    );
+          );
 
-    setWeeks(updatedSetupWeeks);
+          return {
+            ...week,
+            times: updatedTimes,
+          };
+        }
+        return week;
+      });
+    });
   };
 
   const handleAddTime = (weekId: number) => {
