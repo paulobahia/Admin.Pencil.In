@@ -24,7 +24,7 @@ export const LoginForm = () => {
     setTypePassword(prevType => prevType === 'password' ? 'text' : 'password');
   }
 
-  function onSubmit({ email, password }: z.infer<typeof LoginFormSchema>) { }
+  function onSubmit({ }: z.infer<typeof LoginFormSchema>) { }
 
   return (
     <div className="w-full max-w-md mx-auto">

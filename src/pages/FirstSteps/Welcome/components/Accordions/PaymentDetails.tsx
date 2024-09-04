@@ -24,7 +24,7 @@ export const PaymentDetails = () => {
     },
   })
 
-  function onSubmit({ billingAddress, cardCvv, cardExpirationDate, cardNumber, city, state, zipCode, apartment }: z.infer<typeof PaymentDetailsFormSchema>) { }
+  function onSubmit({ }: z.infer<typeof PaymentDetailsFormSchema>) { }
 
   return (
     <Accordion type="single" collapsible className="w-full border rounded-lg">

@@ -3,7 +3,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { AccountSetupFormSchema } from "@/schemas/accountSetupFormSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -20,7 +19,7 @@ export const AccountSetupAccordion = () => {
     },
   })
 
-  function onSubmit({ name, userName, timeZone }: z.infer<typeof AccountSetupFormSchema>) { }
+  function onSubmit({ }: z.infer<typeof AccountSetupFormSchema>) { }
 
   return (
     <Accordion type="single" collapsible className="w-full border rounded-lg">

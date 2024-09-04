@@ -2,7 +2,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { ProfileDescriptionSchema } from "@/schemas/profileDescriptionFormSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -18,7 +17,7 @@ export const ProfileDescriptionAccordion = () => {
     },
   })
 
-  function onSubmit({ description }: z.infer<typeof ProfileDescriptionSchema>) { }
+  function onSubmit({ }: z.infer<typeof ProfileDescriptionSchema>) { }
 
   return (
     <Accordion type="single" collapsible className="w-full border rounded-lg">
