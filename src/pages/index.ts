@@ -1,4 +1,22 @@
-export { SignIn } from "./SignIn";
-export { FirstSteps } from './FirstSteps'
-export { ConnectedCalendar } from './FirstSteps/ConnectedCalendar'
-export { SetupAvailability } from './FirstSteps/SetupAvailability'
+import { SignIn } from "./SignIn";
+import { Welcome, ConnectedCalendar, SetupAvailability } from './FirstSteps'
+import { DashboardLayout, Availability, Bookings, Automations, Insights, Team } from './Dashboard'
+import { SettingsLayout, Appearance, Calendars, OutOfOffice, Profile } from "./Settings";
+
+export {
+  Availability,
+  ConnectedCalendar,
+  DashboardLayout,
+  Welcome,
+  SetupAvailability,
+  SignIn,
+  Bookings,
+  Automations,
+  Insights,
+  Team,
+  SettingsLayout,
+  Appearance,
+  Calendars,
+  OutOfOffice,
+  Profile
+}

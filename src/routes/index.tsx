@@ -1,4 +1,20 @@
-import { ConnectedCalendar, FirstSteps, SetupAvailability, SignIn } from '@/pages'
+import {
+  Availability,
+  ConnectedCalendar,
+  DashboardLayout,
+  Welcome,
+  SetupAvailability,
+  SignIn,
+  Bookings,
+  Insights,
+  Team,
+  Automations,
+  SettingsLayout,
+  Calendars,
+  Appearance,
+  OutOfOffice,
+  Profile
+} from '@/pages'
 
 import {
   createBrowserRouter,
@@ -10,9 +26,22 @@ export const Routers = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<SignIn />} />
-      <Route path="/first-steps" element={<FirstSteps />} />
+      <Route path="/first-steps" element={<Welcome />} />
       <Route path="/first-steps/connected-calendar" element={<ConnectedCalendar />} />
       <Route path="/first-steps/setup-availability" element={<SetupAvailability />} />
+      <Route path="/" element={<DashboardLayout />} >
+        <Route path='/availability' element={<Availability />} />
+        <Route path='/bookings' element={<Bookings />} />
+        <Route path='/insights' element={<Insights />} />
+        <Route path='/team' element={<Team />} />
+        <Route path='/automations' element={<Automations />} />
+      </Route>
+      <Route path='/settings' element={<SettingsLayout />} >
+        <Route path='my-account/appearance' element={<Appearance />} />
+        <Route path='my-account/calendars' element={<Calendars />} />
+        <Route path='my-account/out-of-office' element={<OutOfOffice />} />
+        <Route path='my-account/profile' element={<Profile />} />
+      </Route>
     </Route>
   )
 )
