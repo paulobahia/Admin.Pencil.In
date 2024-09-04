@@ -70,6 +70,18 @@ export const ConnectedCalendar = () => {
             </Button>
           </CardContent>
         </Card>
+        <div className="flex flex-col items-center justify-center">
+          <Button className="w-fit" variant={'ghost'}>
+            <span className="text-sm font-semibold text-center text-white cursor-pointer">
+              Configurar mais tarde
+            </span>
+          </Button>
+          <Button className="mt-5 w-fit" variant={'ghost'}>
+            <span className="text-sm font-semibold text-center text-white cursor-pointer">
+              Sair
+            </span>
+          </Button>
+        </div>
       </div>
     </main>
   )

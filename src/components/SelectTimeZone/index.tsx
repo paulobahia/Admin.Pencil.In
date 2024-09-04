@@ -7,13 +7,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { FormControl } from "../ui/form"
+import { ControllerRenderProps } from "react-hook-form";
 
-export function SelectTimeZone() {
+interface SelectTimeZoneProps {
+  field: ControllerRenderProps<{
+    userName: string;
+    name: string;
+    timeZone: string;
+  }, "timeZone">
+}
+
+export const SelectTimeZone: React.FC<SelectTimeZoneProps> = ({ field }) => {
   return (
-    <Select>
-      <SelectTrigger >
-        <SelectValue placeholder="Selecionar Fuso Hórario" />
-      </SelectTrigger>
+    <Select onValueChange={field.onChange} defaultValue={field.value}>
+      <FormControl>
+        <SelectTrigger >
+          <SelectValue placeholder="Selecionar Fuso Hórario" />
+        </SelectTrigger>
+      </FormControl>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>América do Norte</SelectLabel>

@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useState } from "react"
 import { ISetupWeek, TimePeriod } from "./types"
 import { StepIndicator, WeekDayItem } from "./components"
+import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 
 const SetupWeek: ISetupWeek[] = [
   {
@@ -91,6 +93,7 @@ const SetupWeek: ISetupWeek[] = [
 ]
 
 export const SetupAvailability = () => {
+  const navigate = useNavigate();
   const [weeks, setWeeks] = useState([...SetupWeek])
 
   function toggleSwitch(id: number) {
@@ -182,8 +185,16 @@ export const SetupAvailability = () => {
                 onDeleteTime={handleDeleteTime}
               />
             ))}
+            <Button onClick={() => navigate('/availability')} size={"sm"} className="w-full">
+              Próximo Passo
+            </Button>
           </CardContent>
         </Card>
+        <Button variant={'ghost'}>
+          <span className="text-sm font-semibold text-center text-white cursor-pointer">
+            Sair
+          </span>
+        </Button>
       </div>
     </main>
   )
