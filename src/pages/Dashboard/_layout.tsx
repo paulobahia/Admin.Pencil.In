@@ -11,14 +11,14 @@ import { NavDasboardItem } from "./types"
 
 const navItems: NavDasboardItem[] = [
   {
-    label: 'Disponibilidades',
-    path: '/availability',
-    icon: <Clock size={16} />
-  },
-  {
     label: 'Agendamentos',
     path: '/bookings',
     icon: <Calendar size={16} />
+  },
+  {
+    label: 'Disponibilidades',
+    path: '/availability',
+    icon: <Clock size={16} />
   },
   {
     label: 'Equipe',
@@ -62,13 +62,13 @@ export const DashboardLayout = () => {
                 </Tooltip>
               </TooltipProvider>
             </header>
-            <nav className="flex-1 mt-2 md:px-2 lg:mt-4 lg:px-0">
+            <nav className="flex-1 mt-2 md:px-2F lg:mt-4 lg:px-0">
               {navItems.map((item) => (
                 <Link key={item.path} to={item.path}>
                   <Button
                     size={'sm'}
                     variant={location.pathname === item.path ? 'secondary' : 'ghost'}
-                    className="flex flex-row justify-start w-full text-xs gap-x-2">
+                    className="flex flex-row justify-start w-full my-1 text-xs gap-x-2">
                     {item.icon}
                     <span className="hidden text-[13px] lg:flex">
                       {item.label}
@@ -79,7 +79,7 @@ export const DashboardLayout = () => {
             </nav>
           </div>
           <div>
-            <Link to="/settings">
+            <Link to="/settings/my-account/profile">
               <Button size={'sm'} variant={location.pathname === '/settings' ? 'secondary' : 'ghost'} className="flex flex-row justify-start w-full text-xs gap-x-2">
                 <Settings size={'16'} />
                 <span className="hidden text-[13px] lg:flex">
@@ -93,7 +93,7 @@ export const DashboardLayout = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-full p-4 lg:p-6">
+      <div className="w-full p-4 lg:p-6">
         <Outlet />
       </div>
     </main>

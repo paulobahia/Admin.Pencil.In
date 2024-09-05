@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, CreditCard, Plus, Shield, UserRound, UsersRound } from "lucide-react"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useLocation } from "react-router-dom"
 import { NavSettingsItem } from "./types"
 
 const navProfileItems: NavSettingsItem[] = [
@@ -10,19 +10,19 @@ const navProfileItems: NavSettingsItem[] = [
     subNavItem: [
       {
         label: 'Dados',
-        path: 'my-account/profile'
+        path: '/settings/my-account/profile'
       },
       {
         label: 'Calendaríos',
-        path: 'my-account/calendars'
+        path: '/settings/my-account/calendars'
       },
       {
         label: 'Aparência',
-        path: 'my-account/appearance'
+        path: '/settings/my-account/appearance'
       },
       {
         label: 'Ausente',
-        path: 'my-account/out-of-office'
+        path: '/settings/my-account/out-of-office'
       }
     ]
   },
@@ -32,11 +32,11 @@ const navProfileItems: NavSettingsItem[] = [
     subNavItem: [
       {
         label: 'Senha',
-        path: 'my-account/password'
+        path: '/settings/security/password'
       },
       {
         label: 'Autenticação 2FA',
-        path: 'my-account/two_factor'
+        path: '/settings/security/two-factor'
       }
     ]
   },
@@ -46,13 +46,15 @@ const navProfileItems: NavSettingsItem[] = [
     subNavItem: [
       {
         label: 'Gerenciar faturamento',
-        path: 'my-account/billing'
+        path: '/settings/billing'
       }
     ]
   }
 ]
 
 export const SettingsLayout = () => {
+  const location = useLocation();
+  console.log(location)
   return (
     <main className="flex min-h-screen antialiased bg-background">
       <div className="relative">
@@ -80,7 +82,7 @@ export const SettingsLayout = () => {
                       {
                         item.subNavItem.map((sub) => (
                           <Link key={sub.path} to={sub.path}>
-                            <Button size={'sm'} variant={'ghost'} className="justify-start w-full h-8 px-2">
+                            <Button size={'sm'} variant={location.pathname === sub.path ? 'secondary' : 'ghost'} className="justify-start w-full h-8 px-2 my-0.5">
                               <p className="text-sm font-medium">
                                 {sub.label}
                               </p>

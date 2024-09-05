@@ -13,7 +13,10 @@ import {
   Calendars,
   Appearance,
   OutOfOffice,
-  Profile
+  Profile,
+  Billing,
+  Password,
+  TwoFactor
 } from '@/pages'
 
 import {
@@ -41,6 +44,9 @@ export const Routers = createBrowserRouter(
         <Route path='my-account/calendars' element={<Calendars />} />
         <Route path='my-account/out-of-office' element={<OutOfOffice />} />
         <Route path='my-account/profile' element={<Profile />} />
+        <Route path='billing' element={<Billing />} />
+        <Route path='security/password' element={<Password />} />
+        <Route path='security/two-factor' element={<TwoFactor />} />
       </Route>
     </Route>
   )
