@@ -85,7 +85,7 @@ export const Bookings = () => {
         return (
           <div className="mt-6 space-y-3 max-h-[79vh] overflow-auto no-scrollbar">
             {
-              FakeBookings.map(({ employee, schedulingTime, services, status, user, statusIcon }, index) => {
+              FakeBookings.map(({ employee, schedulingTime, services, status, statusIcon }, index) => {
                 return (
                   <Card key={index} className="flex flex-row items-center justify-between p-5">
                     <div className="flex flex-row items-center space-x-4">

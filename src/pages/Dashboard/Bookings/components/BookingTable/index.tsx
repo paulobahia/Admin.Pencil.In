@@ -14,7 +14,6 @@ import {
 } from "@tanstack/react-table"
 import { useState } from "react"
 import { columns } from './components/Columns'
-import { Booking } from "../../types"
 
 const data = [
   {
