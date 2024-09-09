@@ -42,16 +42,20 @@ export const OrderBy = () => {
           <span className="text-xs text-muted-foreground">Status</span>
           <RadioGroup defaultValue="comfortable">
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="Active" id="r1" />
-              <Label htmlFor="r1">Ativo</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="decreasing" id="r2" />
-              <Label htmlFor="r2">Inactive</Label>
+              <RadioGroupItem value="archived" id="r3" />
+              <Label htmlFor="r3">Próximo</Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="archived" id="r3" />
-              <Label htmlFor="r3">Arquivado</Label>
+              <Label htmlFor="r3">Pendente</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="archived" id="r3" />
+              <Label htmlFor="r3">Constante</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="archived" id="r3" />
+              <Label htmlFor="r3">Anteriores</Label>
             </div>
           </RadioGroup>
         </div>
@@ -71,10 +75,10 @@ export const OrderBy = () => {
         </div>
         <Separator className="my-1.5" />
         <div className="flex flex-row items-center justify-between px-2 py-1.5">
-          <Button size="sm" variant="outline" className="h-7">
+          <Button size="sm" variant="outline" className="h-8">
             Limpar
           </Button>
-          <Button size="sm" variant="default" className="text-white h-7 bg-violet-700 hover:bg-violet-600">
+          <Button size="sm" variant="default" className="h-8 text-white bg-violet-700 hover:bg-violet-600">
             Filtrar
           </Button>
         </div>

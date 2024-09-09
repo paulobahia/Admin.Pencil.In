@@ -62,7 +62,7 @@ export const DashboardLayout = () => {
                 </Tooltip>
               </TooltipProvider>
             </header>
-            <nav className="flex-1 mt-2 md:px-2F lg:mt-4 lg:px-0">
+            <nav className="flex-1 mt-2 md:px-2 lg:mt-4 lg:px-0">
               {navItems.map((item) => (
                 <Link key={item.path} to={item.path}>
                   <Button

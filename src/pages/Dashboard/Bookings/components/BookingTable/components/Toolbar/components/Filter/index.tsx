@@ -54,9 +54,10 @@ export const Filter = () => {
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="active">Ativo</SelectItem>
-                <SelectItem value="inactive">Inativo</SelectItem>
-                <SelectItem value="archived">Arquivado</SelectItem>
+                <SelectItem value="upcoming">Próximo</SelectItem>
+                <SelectItem value="unconfirmed">Pendente</SelectItem>
+                <SelectItem value="recurring">Constante</SelectItem>
+                <SelectItem value="past">Anteriores</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -118,10 +119,10 @@ export const Filter = () => {
         </div>
         <Separator className="my-1.5" />
         <div className="flex flex-row items-center justify-between px-2 py-1.5">
-          <Button size="sm" variant="outline" className="h-7">
+          <Button size="sm" variant="outline" className="h-8">
             Cancelar
           </Button>
-          <Button size="sm" variant="default" className="text-white h-7 bg-violet-700 hover:bg-violet-600">
+          <Button size="sm" variant="default" className="h-8 text-white bg-violet-700 hover:bg-violet-600">
             Filtrar
           </Button>
         </div>
