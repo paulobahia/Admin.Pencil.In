@@ -58,7 +58,7 @@ export const ProfileDescriptionAccordion = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full mt-2 text-white bg-violet-700 hover:bg-violet-600">Salvar</Button>
+              <Button type="submit" className="w-full mt-2">Salvar</Button>
             </form>
           </Form>
         </AccordionContent>

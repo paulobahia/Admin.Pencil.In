@@ -78,11 +78,11 @@ export const DashboardLayout = () => {
               ))}
             </nav>
           </div>
-          <div>
+          <div >
             <Link to="/settings/my-account/profile">
-              <Button size={'sm'} variant={location.pathname === '/settings' ? 'secondary' : 'ghost'} className="flex flex-row justify-start w-full text-xs gap-x-2">
+              <Button size={'sm'} variant={location.pathname === '/settings' ? 'secondary' : 'ghost'} className="flex flex-row justify-center w-full text-xs lg:justify-start gap-x-2">
                 <Settings size={'16'} />
-                <span className="hidden text-[13px] lg:flex">
+                <span className="hidden text-[13px] lg:flex ">
                   Configurações
                 </span>
               </Button>

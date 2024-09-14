@@ -167,7 +167,7 @@ export const PaymentDetails = () => {
                   />
                 </div>
               </div>
-              <Button type="submit" className="w-full col-span-2 mt-2 text-white bg-violet-700 hover:bg-violet-600">Finalizar Cadastro</Button>
+              <Button type="submit" className="w-full col-span-2 mt-2 text-white">Finalizar Cadastro</Button>
             </form>
           </Form>
         </AccordionContent>

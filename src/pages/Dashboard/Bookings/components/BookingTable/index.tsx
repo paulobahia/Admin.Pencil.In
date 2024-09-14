@@ -14,9 +14,11 @@ import {
 } from "@tanstack/react-table"
 import { useState } from "react"
 import { columns } from './components/Columns'
+import { Pagination } from "./components/Pagination"
 
 const data = [
   {
+    id: '01',
     schedulingTime: '2024-09-09T10:00:00',
     status: 'Confirmado',
     employee: 'John Doe',
@@ -24,6 +26,7 @@ const data = [
     user: 'Alice Smith'
   },
   {
+    id: '02',
     schedulingTime: '2024-09-09T10:30:00',
     status: 'Pendente',
     employee: 'Jane Williams',
@@ -31,6 +34,7 @@ const data = [
     user: 'Bob Johnson'
   },
   {
+    id: '03',
     schedulingTime: '2024-09-09T11:00:00',
     status: 'Cancelado',
     employee: 'James Brown',
@@ -38,6 +42,7 @@ const data = [
     user: 'Carol White'
   },
   {
+    id: '04',
     schedulingTime: '2024-09-12T15:45:00',
     status: 'Confirmado',
     employee: 'Emily Davis',
@@ -45,6 +50,7 @@ const data = [
     user: 'David Green'
   },
   {
+    id: '05',
     schedulingTime: '2024-09-13T11:00:00',
     status: 'Pendente',
     employee: 'Michael Johnson',
@@ -52,6 +58,7 @@ const data = [
     user: 'Eve Black'
   },
   {
+    id: '06',
     schedulingTime: '2024-09-14T16:00:00',
     status: 'Confirmado',
     employee: 'Sarah Miller',
@@ -59,6 +66,7 @@ const data = [
     user: 'Frank Gray'
   },
   {
+    id: '07',
     schedulingTime: '2024-09-15T13:30:00',
     status: 'Cancelado',
     employee: 'Chris Wilson',
@@ -66,12 +74,53 @@ const data = [
     user: 'Grace Brown'
   },
   {
+    id: '08',
     schedulingTime: '2024-09-16T09:00:00',
     status: 'Pendente',
     employee: 'Sophia Taylor',
-    services: 'Sombrancelha',
+    services: 'Sombrancelha e Limpeza de Pele',
     user: 'Henry White'
-  }
+  },
+  {
+    id: '09',
+    schedulingTime: '2024-09-16T09:00:00',
+    status: 'Confirmado',
+    employee: 'Sophia Taylor',
+    services: 'Sombrancelha e Limpeza de Pele',
+    user: 'Eve Black'
+  },
+  {
+    id: '10',
+    schedulingTime: '2024-09-16T09:00:00',
+    status: 'Confirmado',
+    employee: 'Sophia Taylor',
+    services: 'Limpeza de Pele',
+    user: 'Henry White'
+  },
+  {
+    id: '10',
+    schedulingTime: '2024-09-16T09:00:00',
+    status: 'Confirmado',
+    employee: 'Sophia Taylor',
+    services: 'Limpeza de Pele',
+    user: 'Henry White'
+  },
+  {
+    id: '10',
+    schedulingTime: '2024-09-16T09:00:00',
+    status: 'Confirmado',
+    employee: 'Sophia Taylor',
+    services: 'Limpeza de Pele',
+    user: 'Henry White'
+  },
+  {
+    id: '10',
+    schedulingTime: '2024-09-16T09:00:00',
+    status: 'Confirmado',
+    employee: 'Sophia Taylor',
+    services: 'Limpeza de Pele',
+    user: 'Henry White'
+  },
 ]
 
 export const BookingTable = () => {
@@ -97,11 +146,16 @@ export const BookingTable = () => {
       columnVisibility,
       rowSelection,
     },
+    initialState: {
+      pagination: {
+        pageSize: 10
+      }
+    }
   })
 
   return (
-    <Card className="py-4 mt-6 rounded-md">
-      <Toolbar />
+    <Card className="py-4 mt-4 rounded-md">
+      <Toolbar table={table}/>
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -129,7 +183,7 @@ export const BookingTable = () => {
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell className="p-3.5" key={cell.id}>
+                  <TableCell className="py-1.5 font-normal" key={cell.id}>
                     {flexRender(
                       cell.column.columnDef.cell,
                       cell.getContext()
@@ -144,12 +198,13 @@ export const BookingTable = () => {
                 colSpan={columns.length}
                 className="h-24 text-center"
               >
-                No results.
+                Sem resultados.
               </TableCell>
             </TableRow>
           )}
         </TableBody>
       </Table>
+      <Pagination table={table} />
     </Card>
   )
 }

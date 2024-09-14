@@ -1,132 +1,134 @@
-import { format } from 'date-fns'
-import { CalendarIcon, ListFilter } from 'lucide-react'
-import { useState } from 'react'
 
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
 import { cn } from '@/lib/utils'
+import { Column } from '@tanstack/react-table'
+import { CheckIcon, CirclePlus } from 'lucide-react'
 
-export const Filter = () => {
-  const [date, setDate] = useState<Date>()
-  const [isFilterByDate, setIsFilterByDate] = useState<boolean>(false)
+interface Filter<TData, TValue> {
+  column?: Column<TData, TValue>
+  title?: string
+  options: {
+    label: string
+    value: string
+    icon?: React.ComponentType<{ className?: string }>
+  }[]
+}
+
+export function Filter<TData, TValue>({ column, title, options }: Filter<TData, TValue>) {
+  const facets = column?.getFacetedUniqueValues()
+  const selectedValues = new Set(column?.getFilterValue() as string[])
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          size="sm"
-          variant="outline"
-          className="h-8 border-dashed"
-          type="button"
-        >
-          <ListFilter className="w-4 h-4 mr-2" />
-          Filtro
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[320px] px-0">
-        <div className="flex flex-row px-2 py-1.5 items-center justify-between">
-          <span className="text-xs text-muted-foreground">
-            Status do Categoria
-          </span>
-          <Select>
-            <SelectTrigger className="gap-2 text-xs h-7 w-fit">
-              <SelectValue placeholder="Status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="upcoming">Próximo</SelectItem>
-                <SelectItem value="unconfirmed">Pendente</SelectItem>
-                <SelectItem value="recurring">Constante</SelectItem>
-                <SelectItem value="past">Anteriores</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-        <Separator className="my-1.5" />
-        <div className="flex flex-col gap-2 px-2">
-          <div className="flex flex-row py-1.5 items-center justify-between">
-            <span className="text-xs text-muted-foreground">
-              Data de Criação
-            </span>
-            <Switch
-              checked={isFilterByDate}
-              onCheckedChange={setIsFilterByDate}
-              id="filter-date"
-            />
-          </div>
-          {isFilterByDate && (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline" size="sm" className="h-8 border-dashed">
+          <CirclePlus className="w-4 h-4 mr-2" />
+          {title}
+          {selectedValues?.size > 0 && (
             <>
-              <Select>
-                <SelectTrigger className="w-full h-8 gap-2 text-xs shadow-sm text-foreground hover:text-accent-foreground">
-                  <SelectValue placeholder="Filtro por Data" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="apple">Antes</SelectItem>
-                    <SelectItem value="banana">Entre</SelectItem>
-                    <SelectItem value="blueberry">Depois</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant={'outline'}
-                    className={cn(
-                      'w-full h-8 justify-start text-left text-xs px-2 items-center font-normal text-foreground',
-                      !date && 'text-foreground',
-                    )}
+              <Separator orientation="vertical" className="h-4 mx-2" />
+              <Badge
+                variant="secondary"
+                className="px-1 font-normal rounded-sm lg:hidden"
+              >
+                {selectedValues.size}
+              </Badge>
+              <div className="hidden space-x-1 lg:flex">
+                {selectedValues.size > 2 ? (
+                  <Badge
+                    variant="secondary"
+                    className="px-1 font-normal rounded-sm"
                   >
-                    <CalendarIcon className="w-4 h-4 mr-2" />
-                    {date ? (
-                      format(date, 'PPP')
-                    ) : (
-                      <span>Selecione uma Data</span>
-                    )}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
+                    {selectedValues.size} selected
+                  </Badge>
+                ) : (
+                  options
+                    .filter((option) => selectedValues.has(option.value))
+                    .map((option) => (
+                      <Badge
+                        variant="secondary"
+                        key={option.value}
+                        className="px-1 font-normal rounded-sm"
+                      >
+                        {option.label}
+                      </Badge>
+                    ))
+                )}
+              </div>
             </>
           )}
-        </div>
-        <Separator className="my-1.5" />
-        <div className="flex flex-row items-center justify-between px-2 py-1.5">
-          <Button size="sm" variant="outline" className="h-8">
-            Cancelar
-          </Button>
-          <Button size="sm" variant="default" className="h-8 text-white bg-violet-700 hover:bg-violet-600">
-            Filtrar
-          </Button>
-        </div>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[200px] p-0" align="start">
+        <Command>
+          <CommandInput placeholder={title} />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup>
+              {options.map((option) => {
+                const isSelected = selectedValues.has(option.value)
+                return (
+                  <CommandItem
+                    key={option.value}
+                    onSelect={() => {
+                      if (isSelected) {
+                        selectedValues.delete(option.value)
+                      } else {
+                        selectedValues.add(option.value)
+                      }
+                      const filterValues = Array.from(selectedValues)
+                      column?.setFilterValue(
+                        filterValues.length ? filterValues : undefined
+                      )
+                    }}
+                  >
+                    <div
+                      className={cn(
+                        "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                        isSelected
+                          ? "bg-primary text-primary-foreground"
+                          : "opacity-50 [&_svg]:invisible"
+                      )}
+                    >
+                      <CheckIcon className={cn("h-4 w-4")} />
+                    </div>
+                    {option.icon && (
+                      <option.icon className="w-4 h-4 mr-2 text-muted-foreground" />
+                    )}
+                    <span>{option.label}</span>
+                    {facets?.get(option.value) && (
+                      <span className="flex items-center justify-center w-4 h-4 ml-auto font-mono text-xs">
+                        {facets.get(option.value)}
+                      </span>
+                    )}
+                  </CommandItem>
+                )
+              })}
+            </CommandGroup>
+            {selectedValues.size > 0 && (
+              <>
+                <CommandSeparator />
+                <CommandGroup>
+                  <CommandItem
+                    onSelect={() => column?.setFilterValue(undefined)}
+                    className="justify-center text-center"
+                  >
+                    Clear filters
+                  </CommandItem>
+                </CommandGroup>
+              </>
+            )}
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
   )
 }
