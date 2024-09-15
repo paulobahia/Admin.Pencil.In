@@ -39,38 +39,28 @@ export function RowAction<TData>({ row }: RowActionsProps<TData>) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <div className="w-full">
-          <DropdownMenuItem>Detalhes</DropdownMenuItem>
-        </div>
+        <DropdownMenuItem>Detalhes</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>Status</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuRadioGroup value={booking.status} className="flex flex-col">
-              <div>
-                <DropdownMenuRadioItem value={'Confirmado'}>
-                  Confirmado
-                </DropdownMenuRadioItem>
-              </div>
-              <div>
-                <DropdownMenuRadioItem value={'Pendente'}>
-                  Pendente
-                </DropdownMenuRadioItem>
-              </div>
-              <div>
-                <DropdownMenuRadioItem value={'Cancelado'}>
-                  Cancelado
-                </DropdownMenuRadioItem>
-              </div>
+              <DropdownMenuRadioItem value={'Confirmado'}>
+                Confirmado
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value={'Pendente'}>
+                Pendente
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value={'Cancelado'}>
+                Cancelado
+              </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <div>
-          <DropdownMenuItem className="flex gap-x-2">
-            Remover
-          </DropdownMenuItem>
-        </div>
+        <DropdownMenuItem className="text-destructive-foreground focus:bg-destructive/90">
+          Remover
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

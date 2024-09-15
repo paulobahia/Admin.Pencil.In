@@ -13,8 +13,8 @@ export const Bookings = () => {
         <p className="text-xl font-semibold">
           Agendamentos
         </p>
-        <span className="text-sm font-normal text-foreground">
-          Gerencie os agendamentos do seu estabelecimento de forma fácil e eficiente
+        <span className="text-sm font-normal text-muted-foreground">
+          Gerencie os agendamentos do seu estúdio de forma fácil e eficiente
         </span>
       </div>
       <div className={`flex flex-row ${previewMode == 'list' ? 'sm:justify-between justify-center' : 'justify-end'}`}>

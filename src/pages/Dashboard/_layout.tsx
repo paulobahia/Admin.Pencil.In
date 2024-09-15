@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, Search, Settings, Users, Zap, LucideLineChart } from "lucide-react"
+import { Calendar, Clock, Search, Settings, Users, Zap, LucideLineChart, ClipboardPen } from "lucide-react"
 import { Link, Outlet, useLocation } from "react-router-dom"
 import {
   Tooltip,
@@ -10,6 +10,11 @@ import {
 import { NavDasboardItem } from "./types"
 
 const navItems: NavDasboardItem[] = [
+  {
+    label: 'Meu estúdio',
+    path: '/my-studio',
+    icon: <ClipboardPen size={16} />
+  },
   {
     label: 'Agendamentos',
     path: '/bookings',

@@ -1,9 +1,12 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { useState } from "react"
-import { ISetupWeek, TimePeriod } from "./types"
-import { StepIndicator, WeekDayItem } from "./components"
 import { Button } from "@/components/ui/button"
-import { useNavigate } from "react-router-dom"
+import { Card, CardContent } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { Separator } from "@/components/ui/separator"
+import { Switch } from "@/components/ui/switch"
+import { WeekDayItem } from "@/pages/FirstSteps/SetupAvailability/components"
+import { ISetupWeek, TimePeriod } from "@/pages/FirstSteps/SetupAvailability/types"
+import { ArrowLeft } from "lucide-react"
+import { useState } from "react"
 
 const SetupWeek: ISetupWeek[] = [
   {
@@ -92,8 +95,7 @@ const SetupWeek: ISetupWeek[] = [
   }
 ]
 
-export const SetupAvailability = () => {
-  const navigate = useNavigate();
+export const CreateAvailability = () => {
   const [weeks, setWeeks] = useState([...SetupWeek])
 
   const toggleSwitch = (id: number) => {
@@ -161,18 +163,45 @@ export const SetupAvailability = () => {
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen antialiased bg-background">
-      <div className="w-full max-w-xl mx-auto space-y-10 text-center">
-        <div className="flex flex-col items-start px-12">
-          <h1 className="mb-2 text-3xl font-bold">
-            Estabelecer Disponibilidade
-          </h1>
-          <p className="mb-6 text-sm text-left text-muted-foreground">Configure os períodos em que estará disponível. Você poderá ajustar essas preferências posteriormente na seção de disponibilidade.</p>
-          <div className="w-full max-w-md">
-            <p className="mb-3 text-xs font-medium text-left text-muted-foreground">Step 3 de 3</p>
-            <StepIndicator currentStep={3} />
-          </div>
+    <main className="flex flex-col flex-1 antialiased bg-background">
+      <div className="flex flex-row items-center gap-x-2">
+        <Button variant={'ghost'} size={'icon'}>
+          <ArrowLeft size={14} />
+        </Button>
+        <div>
+          <p className="text-xl font-semibold">
+            Adicionar nova disponibilidade
+          </p>
+          <span className="text-sm font-normal text-muted-foreground">
+            Adicione uma nova disponibilidade de horarios para o seu estúdio.
+          </span>
         </div>
+      </div>
+      <div className="flex justify-between mt-5">
+        <div className="flex flex-col">
+          <span className="text-sm font-bold">
+            Hórario de agendamento
+          </span>
+          <span className="mt-1 text-sm font-medium text-muted-foreground">
+            Seg - Sex, 09:00 AM - 21:00 PM
+          </span>
+        </div>
+        <div className="flex items-center gap-x-2">
+          <div className="flex items-center gap-x-2">
+            <Label>Definir como Padrão</Label>
+            <Switch />
+          </div>
+          <Separator orientation="vertical" className="h-3/5" />
+          <Button className="text-destructive-foreground hover:bg-destructive/90" variant={'outline'}>
+            Remover
+          </Button>
+          <Separator orientation="vertical" className="h-3/5" />
+          <Button>
+            Salvar
+          </Button>
+        </div>
+      </div>
+      <div className="flex items-center justify-center mt-5 ">
         <Card className="pt-6 mx-5 rounded-md sm:mx-auto">
           <CardContent className="px-3 space-y-5 sm:px-6">
             {weeks.map(day => (
@@ -185,16 +214,8 @@ export const SetupAvailability = () => {
                 onDeleteTime={handleDeleteTime}
               />
             ))}
-            <Button onClick={() => navigate('/availability')} size={"sm"} className="w-full">
-              Próximo Passo
-            </Button>
           </CardContent>
         </Card>
-        <Button variant={'ghost'}>
-          <span className="text-sm font-semibold text-center text-white cursor-pointer">
-            Sair
-          </span>
-        </Button>
       </div>
     </main>
   )

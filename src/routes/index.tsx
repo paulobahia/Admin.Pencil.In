@@ -16,7 +16,9 @@ import {
   Profile,
   Billing,
   Password,
-  TwoFactor
+  TwoFactor,
+  Studio,
+  CreateAvailability
 } from '@/pages'
 
 import {
@@ -33,7 +35,9 @@ export const Routers = createBrowserRouter(
       <Route path="/first-steps/connected-calendar" element={<ConnectedCalendar />} />
       <Route path="/first-steps/setup-availability" element={<SetupAvailability />} />
       <Route path="/" element={<DashboardLayout />} >
+        <Route path='/my-studio' element={<Studio />} />
         <Route path='/availability' element={<Availability />} />
+        <Route path='/availability/:id' element={<CreateAvailability />} />
         <Route path='/bookings' element={<Bookings />} />
         <Route path='/insights' element={<Insights />} />
         <Route path='/team' element={<Team />} />

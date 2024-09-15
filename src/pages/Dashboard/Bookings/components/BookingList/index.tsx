@@ -126,7 +126,7 @@ export const BookingList = () => {
               <Button className="items-center justify-center hidden gap-x-1 sm:flex">
                 Detalhes
               </Button>
-              <Button size={'icon'} variant={'ghost'} className="flex items-center justify-center sm:hidden">
+              <Button size={'icon'} variant={'outline'} className="flex items-center justify-center sm:hidden">
                 <Ellipsis size={18} />
               </Button>
             </Card>

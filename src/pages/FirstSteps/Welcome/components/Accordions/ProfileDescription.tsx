@@ -26,7 +26,7 @@ export const ProfileDescriptionAccordion = () => {
           <div className="flex items-center justify-between w-full">
             <div>
               <h2 className="font-semibold text-left">Descrição do Perfil</h2>
-              <p className="text-sm text-left text-muted-foreground">Uma breve descrição sobre o seu estabelecimento juntamente com uma foto para assim dar forma a seu perfil</p>
+              <p className="text-sm text-left text-muted-foreground">Uma breve descrição sobre o seu estúdio juntamente com uma foto para assim dar forma a seu perfil</p>
             </div>
           </div>
         </AccordionTrigger>
