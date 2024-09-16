@@ -1,5 +1,5 @@
 import { Switch } from "@/components/ui/switch";
-import { ISetupWeek } from "../../types";
+import { ISetupWeek } from "../types";
 import { Label } from "@/components/ui/label";
 import { CircleMinus, CirclePlus, Copy, Dot, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";

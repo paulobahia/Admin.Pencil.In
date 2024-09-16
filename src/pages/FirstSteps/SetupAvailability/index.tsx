@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { useState } from "react"
-import { ISetupWeek, TimePeriod } from "./types"
+import { ISetupWeek, TimePeriod } from "../../../components/types"
 import { StepIndicator, WeekDayItem } from "./components"
 import { Button } from "@/components/ui/button"
 import { useNavigate } from "react-router-dom"
