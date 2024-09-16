@@ -1,167 +1,12 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
-import { WeekDayItem } from "@/pages/FirstSteps/SetupAvailability/components"
-import { ISetupWeek, TimePeriod } from "@/pages/FirstSteps/SetupAvailability/types"
-import { ArrowLeft } from "lucide-react"
-import { useState } from "react"
-
-const SetupWeek: ISetupWeek[] = [
-  {
-    id: 0,
-    label: 'Domingo',
-    enabled: false,
-    times: [
-      {
-        id: 0,
-        startTime: '',
-        endTime: ''
-      }
-    ]
-  },
-  {
-    id: 1,
-    label: 'Segunda-Feira',
-    enabled: true,
-    times: [
-      {
-        id: 0,
-        startTime: '',
-        endTime: ''
-      }
-    ]
-  },
-  {
-    id: 2,
-    label: 'Terça-Feira',
-    enabled: true,
-    times: [
-      {
-        id: 0,
-        startTime: '',
-        endTime: ''
-      }
-    ]
-  },
-  {
-    id: 3,
-    label: 'Quarta-Feira',
-    enabled: true,
-    times: [
-      {
-        id: 0,
-        startTime: '',
-        endTime: ''
-      }
-    ]
-  },
-  {
-    id: 4,
-    label: 'Quinta-Feira',
-    enabled: true,
-    times: [
-      {
-        id: 0,
-        startTime: '',
-        endTime: ''
-      }
-    ]
-  },
-  {
-    id: 5,
-    label: 'Sexta-Feira',
-    enabled: true,
-    times: [
-      {
-        id: 0,
-        startTime: '',
-        endTime: ''
-      }
-    ]
-  },
-  {
-    id: 6,
-    label: 'Sábado',
-    enabled: false,
-    times: [
-      {
-        id: 0,
-        startTime: '',
-        endTime: ''
-      }
-    ]
-  }
-]
+import { ArrowLeft, Save, Trash } from "lucide-react"
+import { DateExceptionsList, ScheduleAvailabilityCard } from "./components"
+import { TooltipButton } from "@/components"
 
 export const CreateAvailability = () => {
-  const [weeks, setWeeks] = useState([...SetupWeek])
-
-  const toggleSwitch = (id: number) => {
-    setWeeks(prevWeeks =>
-      prevWeeks.map(week =>
-        week.id === id
-          ? { ...week, enabled: !week.enabled }
-          : week
-      )
-    );
-  }
-
-  const handleTimeChange = (weekId: number, timeIndex: number, field: 'startTime' | 'endTime', newValue: string) => {
-    setWeeks((prevWeeks) => {
-      return prevWeeks.map((week) => {
-        if (week.id === weekId) {
-          const updatedTimes = week.times.map((timePeriod, tIndex) =>
-            tIndex === timeIndex ? { ...timePeriod, [field]: newValue } : timePeriod
-          );
-
-          return {
-            ...week,
-            times: updatedTimes,
-          };
-        }
-        return week;
-      });
-    });
-  };
-
-  const handleAddTime = (weekId: number) => {
-    setWeeks((prevWeeks) => {
-      return prevWeeks.map((week) => {
-        if (week.id === weekId) {
-          const newTimePeriod: TimePeriod = {
-            id: week.times.length > 0 ? Math.max(...week.times.map(t => t.id)) + 1 : 0,
-            startTime: '',
-            endTime: '',
-          };
-
-          return {
-            ...week,
-            times: [...week.times, newTimePeriod],
-          };
-        }
-        return week;
-      });
-    });
-  };
-
-  const handleDeleteTime = (weekId: number, timeIndex: number) => {
-    setWeeks((prevWeeks) => {
-      return prevWeeks.map((week) => {
-        if (week.id === weekId) {
-          const updatedTimes = week.times.filter((_, index) => index !== timeIndex);
-
-          return {
-            ...week,
-            times: updatedTimes,
-          };
-        }
-        return week;
-      });
-    });
-  };
-
   return (
     <main className="flex flex-col flex-1 antialiased bg-background">
       <div className="flex flex-row items-center gap-x-2">
@@ -192,30 +37,29 @@ export const CreateAvailability = () => {
             <Switch />
           </div>
           <Separator orientation="vertical" className="h-3/5" />
-          <Button className="text-destructive-foreground hover:bg-destructive/90" variant={'outline'}>
-            Remover
-          </Button>
+          <TooltipButton description="Remover" variant="destructive" icon={<Trash size={16} />} />
           <Separator orientation="vertical" className="h-3/5" />
-          <Button>
-            Salvar
-          </Button>
+          <TooltipButton description="Salvar" variant="default" icon={<Save size={16} />} />
         </div>
       </div>
-      <div className="flex items-center justify-center mt-5 ">
-        <Card className="pt-6 mx-5 rounded-md sm:mx-auto">
-          <CardContent className="px-3 space-y-5 sm:px-6">
-            {weeks.map(day => (
-              <WeekDayItem
-                key={day.id}
-                day={day}
-                onToggle={toggleSwitch}
-                onTimeChange={handleTimeChange}
-                onAddTime={handleAddTime}
-                onDeleteTime={handleDeleteTime}
-              />
-            ))}
-          </CardContent>
-        </Card>
+      <div className="flex flex-col items-start justify-center gap-3 mt-5">
+        <ScheduleAvailabilityCard />
+        <div className="flex flex-col w-full gap-3">
+          <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-col">
+              <span className="text-lg font-medium">
+                Exceções de datas
+              </span>
+              <span className="text-sm font-normal text-muted-foreground">
+                Adicione exceções de datas para definir horários específicos que serão aplicados apenas nas datas selecionadas, sem alterar a disponibilidade padrão.
+              </span>
+            </div>
+            <Button className="w-fit">
+              Adicionar uma exceção
+            </Button>
+          </div>
+          <DateExceptionsList />
+        </div>
       </div>
     </main>
   )
