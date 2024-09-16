@@ -22,7 +22,7 @@ export const CreateAvailability = () => {
           </span>
         </div>
       </div>
-      <div className="flex justify-between mt-5">
+      <div className="flex flex-row justify-between mt-5">
         <div className="flex flex-col">
           <span className="text-sm font-bold">
             Hórario de agendamento
@@ -32,11 +32,11 @@ export const CreateAvailability = () => {
           </span>
         </div>
         <div className="flex items-center gap-x-2">
-          <div className="flex items-center gap-x-2">
+          <div className="items-center hidden gap-x-2 sm:flex">
             <Label>Definir como Padrão</Label>
             <Switch />
           </div>
-          <Separator orientation="vertical" className="h-3/5" />
+          <Separator orientation="vertical" className="hidden h-3/5 sm:flex" />
           <TooltipButton description="Remover" variant="destructive" icon={<Trash size={16} />} />
           <Separator orientation="vertical" className="h-3/5" />
           <TooltipButton description="Salvar" variant="default" icon={<Save size={16} />} />
@@ -45,7 +45,7 @@ export const CreateAvailability = () => {
       <div className="flex flex-col items-start justify-center gap-3 mt-5">
         <ScheduleAvailabilityCard />
         <div className="flex flex-col w-full gap-3">
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
             <div className="flex flex-col">
               <span className="text-lg font-medium">
                 Exceções de datas
@@ -54,7 +54,7 @@ export const CreateAvailability = () => {
                 Adicione exceções de datas para definir horários específicos que serão aplicados apenas nas datas selecionadas, sem alterar a disponibilidade padrão.
               </span>
             </div>
-            <Button className="w-fit">
+            <Button className="w-full sm:w-fit">
               Adicionar uma exceção
             </Button>
           </div>

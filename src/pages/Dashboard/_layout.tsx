@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, Search, Settings, Users, Zap, LucideLineChart, ClipboardPen } from "lucide-react"
+import { Calendar, Clock, Search, Settings, Users, Zap, LucideLineChart, ClipboardPen, MoreHorizontal } from "lucide-react"
 import { Link, Outlet, useLocation } from "react-router-dom"
 import {
   Tooltip,
@@ -83,7 +83,7 @@ export const DashboardLayout = () => {
               ))}
             </nav>
           </div>
-          <div >
+          <div>
             <Link to="/settings/my-account/profile">
               <Button size={'sm'} variant={location.pathname === '/settings' ? 'secondary' : 'ghost'} className="flex flex-row justify-center w-full text-xs lg:justify-start gap-x-2">
                 <Settings size={'16'} />
@@ -101,6 +101,38 @@ export const DashboardLayout = () => {
       <div className="w-full p-4 lg:p-6">
         <Outlet />
       </div>
+      <nav className="fixed bottom-0 left-0 z-30 flex justify-around w-full px-1 border-t shadow bg-secondary border-subtle bg-opacity-40 backdrop-blur-md md:hidden">
+        <Link to="/my-studio" className={`${location.pathname === '/my-studio' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+          <ClipboardPen size={18} />
+          <span>
+            Estúdio
+          </span>
+        </Link>
+        <Link to="/bookings" className={`${location.pathname === '/bookings' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+          <Calendar size={18} />
+          <span>
+            Agendamento
+          </span>
+        </Link>
+        <Link to="/availability" className={`${location.pathname === '/availability' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+          <Clock size={18} />
+          <span>
+            Disponibilidade
+          </span>
+        </Link>
+        <Link to="/team" className={`${location.pathname === '/team' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+          <Users size={18} />
+          <span>
+            Equipe
+          </span>
+        </Link>
+        <Link to="/more" className={`${location.pathname === '/more' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+          <MoreHorizontal size={18} />
+          <span>
+            Mais
+          </span>
+        </Link>
+      </nav>
     </main>
   )
 }

@@ -6,7 +6,7 @@ export const DateExceptionsList = () => {
   return (
     <div className="flex flex-col overflow-auto max-h-52 no-scrollbar">
       {
-        Array.from({ length: 5 }).map((_, index) => {
+        Array.from({ length: 3 }).map((_, index) => {
           return (
             <Card key={index} className="flex flex-row items-center justify-between p-4 border-b-0 rounded-t-none rounded-b-none last:border-b first:rounded-t-md last:rounded-b-md">
               <div className="flex flex-col gap-y-1">

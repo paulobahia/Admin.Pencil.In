@@ -158,7 +158,7 @@ export const ScheduleAvailabilityCard = () => {
   };
 
   return (
-    <Card className="w-full pt-6 mx-5 rounded-md sm:mx-auto">
+    <Card className="w-full pt-6 rounded-md">
       <CardContent className="px-3 space-y-5 w-fit bg-r sm:px-6">
         {weeks.map(day => (
           <WeekDayItem
