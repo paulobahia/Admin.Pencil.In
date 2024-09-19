@@ -5,8 +5,8 @@ import { Label } from "@/components/ui/label"
 
 export const DialogAddAvailability = () => {
   return (
-    <DialogContent>
-      <DialogHeader>
+    <DialogContent className="w-[95%]">
+      <DialogHeader className="text-start">
         <DialogTitle>Adicionar nova disponibilidade</DialogTitle>
         <DialogDescription>
           O nome informado servirá para identificar o grupo de horários em que você estará disponível.

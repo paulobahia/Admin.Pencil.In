@@ -18,7 +18,8 @@ import {
   Password,
   TwoFactor,
   Studio,
-  CreateAvailability
+  CreateAvailability,
+  More
 } from '@/pages'
 
 import {
@@ -37,12 +38,13 @@ export const Routers = createBrowserRouter(
       <Route path="/" element={<DashboardLayout />} >
         <Route path='/my-studio' element={<Studio />} />
         <Route path='/availability' element={<Availability />} />
-        <Route path='/availability/:id' element={<CreateAvailability />} />
         <Route path='/bookings' element={<Bookings />} />
         <Route path='/insights' element={<Insights />} />
         <Route path='/team' element={<Team />} />
         <Route path='/automations' element={<Automations />} />
+        <Route path='/more' element={<More />} />
       </Route>
+      <Route path='/availability/:id' element={<CreateAvailability />} />
       <Route path='/settings' element={<SettingsLayout />} >
         <Route path='my-account/appearance' element={<Appearance />} />
         <Route path='my-account/calendars' element={<Calendars />} />

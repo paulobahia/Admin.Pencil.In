@@ -19,7 +19,7 @@ export const DateExceptionsList = () => {
               </div>
               <div className="flex flex-row gap-x-2">
                 <TooltipButton variant="outline" description="Editar" icon={<Pencil size={16} />} />
-                <TooltipButton variant="outline" description="Remover exceção" icon={<Trash size={16} />} />
+                <TooltipButton variant="destructive" description="Remover exceção" icon={<Trash size={16} />} />
               </div>
             </Card>
           )

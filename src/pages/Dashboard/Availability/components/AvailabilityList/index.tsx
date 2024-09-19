@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Ellipsis } from "lucide-react"
+import { Copy, Ellipsis, Star, Trash } from "lucide-react"
 
 export const AvailabilityList = () => {
   return (
@@ -37,11 +37,24 @@ export const AvailabilityList = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem>Definir como padrão</DropdownMenuItem>
-                  <DropdownMenuItem>Duplicar</DropdownMenuItem>
+                  <DropdownMenuItem className="gap-x-2">
+                    <Star size={16} />
+                    <span>
+                      Definir como padrão
+                    </span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="gap-x-2">
+                    <Copy size={16} />
+                    <span>
+                      Duplicar
+                    </span>
+                  </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="text-destructive-foreground focus:bg-destructive/90">
-                    Remover
+                  <DropdownMenuItem className="text-destructive-foreground focus:bg-destructive/90 gap-x-2">
+                    <Trash size={16} />
+                    <span>
+                      Remover
+                    </span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

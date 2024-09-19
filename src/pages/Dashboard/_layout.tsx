@@ -98,37 +98,37 @@ export const DashboardLayout = () => {
           </div>
         </div>
       </div>
-      <div className="w-full p-4 lg:p-6">
+      <div className="w-full p-4 pb-16 md:pb-0 lg:p-6">
         <Outlet />
       </div>
-      <nav className="fixed bottom-0 left-0 z-30 flex justify-around w-full px-1 border-t shadow bg-secondary border-subtle bg-opacity-40 backdrop-blur-md md:hidden">
-        <Link to="/my-studio" className={`${location.pathname === '/my-studio' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+      <nav className="fixed bottom-0 left-0 z-30 flex justify-around w-full px-1 border-t shadow bg-muted border-subtle bg-opacity-40 backdrop-blur-md md:hidden">
+        <Link to="/my-studio" className={`${location.pathname === '/my-studio' && 'text-white'} hover:text-default text-muted-foreground items-center flex flex-col relative my-2 min-w-0  overflow-hidden rounded-md !bg-transparent p-1 text-center text-xs font-medium focus:z-10 sm:text-sm`}>
           <ClipboardPen size={18} />
-          <span>
+          <span className="block truncate">
             Estúdio
           </span>
         </Link>
-        <Link to="/bookings" className={`${location.pathname === '/bookings' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+        <Link to="/bookings" className={`${location.pathname === '/bookings' && 'text-white'} hover:text-default text-muted-foreground items-center flex flex-col relative my-2 min-w-0  overflow-hidden rounded-md !bg-transparent p-1 text-center text-xs font-medium focus:z-10 sm:text-sm`}>
           <Calendar size={18} />
-          <span>
+          <span className="block truncate">
             Agendamento
           </span>
         </Link>
-        <Link to="/availability" className={`${location.pathname === '/availability' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+        <Link to="/availability" className={`${location.pathname === '/availability' && 'text-white'} hover:text-default text-muted-foreground items-center flex flex-col relative my-2 min-w-0  overflow-hidden rounded-md !bg-transparent p-1 text-center text-xs font-medium focus:z-10 sm:text-sm`}>
           <Clock size={18} />
-          <span>
+          <span className="block truncate">
             Disponibilidade
           </span>
         </Link>
-        <Link to="/team" className={`${location.pathname === '/team' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+        <Link to="/team" className={`${location.pathname === '/team' && 'text-white'} hover:text-default text-muted-foreground items-center flex flex-col relative my-2 min-w-0  overflow-hidden rounded-md !bg-transparent p-1 text-center text-xs font-medium focus:z-10 sm:text-sm`}>
           <Users size={18} />
-          <span>
+          <span className="block truncate">
             Equipe
           </span>
         </Link>
-        <Link to="/more" className={`${location.pathname === '/more' && 'text-white'} relative flex truncate flex-col items-center min-w-0 p-1 my-2 overflow-hidden text-xs font-medium text-center rounded-md text-muted-foreground focus:z-10 sm:text-sm`}>
+        <Link to="/more" className={`${location.pathname === '/more' && 'text-white'} hover:text-default text-muted-foreground items-center flex flex-col relative my-2 min-w-0  overflow-hidden rounded-md !bg-transparent p-1 text-center text-xs font-medium focus:z-10 sm:text-sm`}>
           <MoreHorizontal size={18} />
-          <span>
+          <span className="block truncate">
             Mais
           </span>
         </Link>

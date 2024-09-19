@@ -6,3 +6,4 @@ export { Insights } from "./Insights";
 export { Team } from "./Team";
 export { Studio } from "./Studio";
 export { CreateAvailability } from "./Availability/CreateAvailability"
+export { More } from "./More"

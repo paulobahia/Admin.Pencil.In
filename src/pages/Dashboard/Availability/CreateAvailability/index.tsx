@@ -5,14 +5,17 @@ import { Switch } from "@/components/ui/switch"
 import { ArrowLeft, Save, Trash } from "lucide-react"
 import { DateExceptionsList, ScheduleAvailabilityCard } from "./components"
 import { TooltipButton } from "@/components"
+import { Link } from "react-router-dom"
 
 export const CreateAvailability = () => {
   return (
-    <main className="flex flex-col flex-1 antialiased bg-background">
+    <main className="flex flex-col flex-1 p-4 antialiased bg-background lg:p-6">
       <div className="flex flex-row items-center gap-x-2">
-        <Button variant={'ghost'} size={'icon'}>
-          <ArrowLeft size={14} />
-        </Button>
+        <Link to={'/availability'}>
+          <Button variant={'ghost'} size={'icon'}>
+            <ArrowLeft size={14} />
+          </Button>
+        </Link>
         <div>
           <p className="text-xl font-semibold">
             Adicionar nova disponibilidade
