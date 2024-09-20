@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
 import { Row } from "@tanstack/react-table"
-import { Ellipsis, ScanSearch, Trash } from "lucide-react"
+import { Ellipsis, Trash } from "lucide-react"
 import { z } from "zod"
 
 export const statusSchema = z.object({
