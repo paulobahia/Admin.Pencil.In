@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
 import { Row } from "@tanstack/react-table"
-import { Ellipsis } from "lucide-react"
+import { Ellipsis, ScanSearch, Trash } from "lucide-react"
 import { z } from "zod"
 
 export const statusSchema = z.object({
@@ -39,7 +39,9 @@ export function RowAction<TData>({ row }: RowActionsProps<TData>) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>Detalhes</DropdownMenuItem>
+        <DropdownMenuItem>
+          Detalhes
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>Status</DropdownMenuSubTrigger>
@@ -58,8 +60,11 @@ export function RowAction<TData>({ row }: RowActionsProps<TData>) {
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-destructive-foreground focus:bg-destructive/90">
-          Remover
+        <DropdownMenuItem className="text-destructive-foreground focus:bg-destructive/90 gap-x-2">
+          <Trash size={16} />
+          <span>
+            Remover
+          </span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
