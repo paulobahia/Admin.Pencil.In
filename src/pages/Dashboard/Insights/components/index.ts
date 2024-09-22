@@ -1,3 +1,9 @@
+export { LatestAutomationsTable } from "./LatestAutomationsTable";
+export { SchedulesChart } from "./SchedulesChart";
 export { SchedulesCreatedChart } from "./SchedulesCreatedChart";
 export { SchedulesCompletedChart } from "./SchedulesCompletedChart";
 export { SchedulesCanceledChart } from "./SchedulesCanceledChart";
+export { PopularProceduresTable } from "./PopularProceduresTable";
+export { PopularEmployeesTable } from "./PopularEmployeesTable";
+export { ReturningCustomersTable } from "./ReturningCustomersTable";
+export { LastAppointmentTable } from "./LastAppointmentTable";

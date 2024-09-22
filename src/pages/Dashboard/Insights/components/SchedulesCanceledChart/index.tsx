@@ -27,7 +27,7 @@ const data = [
 
 export const SchedulesCanceledChart = () => {
   return (
-    <Card className="relative rounded-lg col-span-full md:col-span-1">
+    <Card className="relative rounded-lg col-span-full lg:col-span-1">
       <CardHeader className="p-4 space-y-0.5">
         <CardTitle className="text-lg">Agendamentos criados</CardTitle>
         <span className="text-xs text-muted-foreground">Total de agendamentos criados no ultimo mês.</span>
