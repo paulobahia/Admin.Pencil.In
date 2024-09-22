@@ -1,8 +1,9 @@
+import { TooltipButton } from "@/components"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Calendar, Check, Copy, Ellipsis, ExternalLink, Link, Pencil, Trash } from "lucide-react"
+import { Calendar, Copy, Ellipsis, ExternalLink, Link, Pencil, Star, Trash } from "lucide-react"
 
 export const StudioModelList = () => {
   return (
@@ -30,23 +31,19 @@ export const StudioModelList = () => {
           </div>
         </div>
         <div className="flex flex-row">
-          <Button size={'icon'} variant={'outline'} className="flex items-center justify-center border-r-0 rounded-r-none">
-            <ExternalLink size={18} />
-          </Button>
-          <Button size={'icon'} variant={'outline'} className="flex items-center justify-center rounded-l-none rounded-r-none">
-            <Link size={18} />
-          </Button>
+          <TooltipButton className="rounded-r-none" description="Pré-visualizar" icon={<ExternalLink size={18} />} variant="outline" />
+          <TooltipButton className="rounded-l-none rounded-r-none" description="Copiar link" icon={<Link size={18} />} variant="outline" />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button size={'icon'} variant={'outline'} className="flex items-center justify-center">
+              <Button size={'icon'} variant={'outline'} className="flex items-center justify-center rounded-l-none">
                 <Ellipsis size={18} />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem className="gap-x-2">
-                <Check size={16} />
+                <Star size={16} />
                 <span>
-                  Ativar modelo
+                  Definir como padrão
                 </span>
               </DropdownMenuItem>
               <DropdownMenuItem className="gap-x-2">
