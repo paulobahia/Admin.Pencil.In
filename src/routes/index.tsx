@@ -19,7 +19,8 @@ import {
   TwoFactor,
   Studio,
   CreateAvailability,
-  More
+  More,
+  CreatedAutomation
 } from '@/pages'
 
 import {
@@ -45,6 +46,7 @@ export const Routers = createBrowserRouter(
         <Route path='/more' element={<More />} />
       </Route>
       <Route path='/availability/:id' element={<CreateAvailability />} />
+      <Route path='/automations/:id' element={<CreatedAutomation />} />
       <Route path='/settings' element={<SettingsLayout />} >
         <Route path='my-account/appearance' element={<Appearance />} />
         <Route path='my-account/calendars' element={<Calendars />} />
