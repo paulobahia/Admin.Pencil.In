@@ -9,26 +9,47 @@ export const StudioModelList = () => {
   return (
     <div className="mt-6 max-h-[79vh] overflow-auto no-scrollbar">
       <Card className="flex flex-row items-center justify-between px-6 py-5 border-b-0 rounded-md rounded-t-none rounded-b-none cursor-pointer hover:bg-foreground/5 first:rounded-t-md last:rounded-b-md last:border-b">
-        <div className="flex flex-col items-start gap-y-3">
+        <div className="flex flex-col items-start gap-y-1.5">
           <div className="flex flex-row items-center gap-x-1">
             <span className="text-sm font-semibold">
               Modelo Barber Shop
             </span>
-            <span className="text-xs font-normal text-muted-foreground">
+            <span className="hidden text-xs font-normal md:flex text-muted-foreground">
               /barber-shop-vzj25
             </span>
-          </div>
-          <div className="flex flex-row gap-x-2">
-            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1 bg-muted">
-              <Calendar size={15} />
-              <span>
-                Seg - Sáb
-              </span>
-            </Badge>
-            <Badge variant={'outline'} className="text-white bg-green-900 rounded-sm">
+            <Badge variant={'outline'} className="text-white bg-green-900 rounded-sm w-fit">
               Ativo
             </Badge>
           </div>
+          <div className="flex-row hidden gap-x-1 md:flex">
+            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1">
+              Dom
+            </Badge>
+            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1 bg-muted">
+              Seg
+            </Badge>
+            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1 bg-muted">
+              Ter
+            </Badge>
+            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1 bg-muted">
+              Qua
+            </Badge>
+            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1 bg-muted">
+              Qui
+            </Badge>
+            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1 bg-muted">
+              Sex
+            </Badge>
+            <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm gap-x-1">
+              Sáb
+            </Badge>
+          </div>
+          <Badge variant={'outline'} className="flex flex-row items-center px-2 text-white rounded-sm md:hidden gap-x-1 bg-muted">
+            <Calendar size={15} />
+            <span>
+              Seg - Sáb
+            </span>
+          </Badge>
         </div>
         <div className="flex flex-row">
           <TooltipButton className="rounded-r-none" description="Pré-visualizar" icon={<ExternalLink size={18} />} variant="outline" />
@@ -68,7 +89,7 @@ export const StudioModelList = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </Card>
-    </div>
+      </Card >
+    </div >
   )
 }

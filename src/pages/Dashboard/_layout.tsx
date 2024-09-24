@@ -98,7 +98,7 @@ export const DashboardLayout = () => {
           </div>
         </div>
       </div>
-      <div className="w-full p-4 pb-16 md:pb-0 lg:p-6">
+      <div className="w-full p-4 pb-16 md:pb-0 lg:p-3">
         <Outlet />
       </div>
       <nav className="fixed bottom-0 left-0 z-30 flex justify-around w-full px-1 border-t shadow bg-muted border-subtle bg-opacity-40 backdrop-blur-md md:hidden">
