@@ -1,4 +1,3 @@
-"use client";
 import { useEditor, EditorContent, type Editor as TypeEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Bold, Strikethrough, Italic, List, ListOrdered } from "lucide-react";
@@ -15,7 +14,7 @@ export const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
     editorProps: {
       attributes: {
         class:
-          "min-h-[200px] rounded-md rounded-br-none rounded-bl-none border border-input bg-transparent px-3 py-2 border-b-0 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+          "min-h-[200px] w-full max-w-full break-words rounded-md rounded-br-none rounded-bl-none border border-input bg-transparent px-3 py-2 border-b-0 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
       },
     },
     extensions: [
@@ -40,7 +39,14 @@ export const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
 
   return (
     <>
-      <EditorContent className="max-w-[260px] sm:max-w-xl md:max-w-[830px] xl:max-w-[920px]" editor={editor} />
+      <EditorContent
+        className="w-full max-w-full break-words overflow-wrap break-word"
+        style={{
+          maxWidth: '100%',
+          wordBreak: 'break-word',
+          overflowWrap: 'break-word',
+        }}
+        editor={editor} />
       {editor ? <EditorToolbar editor={editor} /> : null}
     </>
   );
@@ -48,7 +54,7 @@ export const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
 
 const EditorToolbar = ({ editor }: { editor: TypeEditor }) => {
   return (
-    <div className="flex flex-row items-center gap-1 p-1 bg-transparent border border-input rounded-br-md rounded-bl-md">
+    <div className="flex flex-wrap items-center gap-1 p-1 bg-transparent border border-input rounded-br-md rounded-bl-md">
       <Toggle
         size="sm"
         pressed={editor.isActive("bold")}

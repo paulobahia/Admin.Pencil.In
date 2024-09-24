@@ -77,7 +77,7 @@ export const CreatedAutomation = () => {
             </Button>
           </CardContent>
         </Card>
-        <Card className="grid items-start p-5 gap-y-3 auto-rows-max lg:col-span-2">
+        <Card className="grid p-5 gap-y-3 auto-rows-max lg:col-span-2">
           <Card className="p-6">
             <CardHeader className="p-0">
               <div className="flex flex-col items-start gap-y-2">
@@ -147,8 +147,8 @@ export const CreatedAutomation = () => {
             }
           </Card>
           <ArrowDownCircle size={18} className="w-full text-center text-muted-foreground" />
-          <Card className="p-6">
-            <CardHeader className="p-0">
+          <Card className="w-full p-6">
+            <CardHeader className="items-start w-full p-0">
               <div className="flex flex-col items-start gap-y-2">
                 <span className="text-lg font-bold leading-none tracking-tight">
                   Ação
